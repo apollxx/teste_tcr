@@ -4,7 +4,7 @@ workflows:
     environment:
       xcode: latest
       cocoapods: default
-      flutter: latest
+      flutter: 3.24.4
     scripts:
       - name: Install dependencies
         script: |
