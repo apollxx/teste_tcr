@@ -1,0 +1,16 @@
+workflows:
+  ios-simulator-build:
+    name: iOS Simulator Build
+    environment:
+      xcode: latest
+      cocoapods: default
+      flutter: latest
+    scripts:
+      - name: Install dependencies
+        script: |
+          flutter pub get
+      - name: Build for iOS Simulator
+        script: |
+          xcodebuild -workspace ios/Runner.xcworkspace -scheme Runner -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' -sdk iphonesimulator
+    artifacts:
+      - build/ios/Debug-iphonesimulator/Runner.app
