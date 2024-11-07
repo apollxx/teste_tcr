@@ -27,8 +27,4 @@ workflows:
         script: |
           ls -R build/ios/Debug-iphonesimulator
     artifacts:
-<<<<<<< HEAD
       - build/ios/Debug-iphonesimulator/Runner.app
-=======
-      - build/ios/Debug-iphonesimulator/Runner.app
->>>>>>> 6bcd5433ab421a3ec2eb504fe0e6e1c65695f6d3
