@@ -5,7 +5,7 @@
 
 
     <application
-        android:label="TCR"
+        android:label="TCR Finance"
         tools:replace="android:label"
         android:icon="@mipmap/icon"
         android:requestLegacyExternalStorage="true">
