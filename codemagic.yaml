@@ -15,14 +15,34 @@ workflows:
 
 
     environment:
-
-      # ...  
-
-
+      flutter: 3.24.4 # Replace with the correct Flutter version
+      xcode: latest
 
     scripts:
 
-      # ...  
+      - name: Clean project
+        script: |
+          flutter clean
+      - name: Install dependencies
+        script: |
+          flutter pub get
+      - name: Install CocoaPods dependencies
+        script: |
+          cd ios
+          pod install
+          cd ..
+      - name: Build for iOS Simulator using Flutter
+        script: |
+          flutter build ios --simulator
+      - name: Copy .app file to artifacts folder
+        script: |
+          mkdir -p build/ios/Debug-iphonesimulator
+          cp -R build/ios/Debug-iphonesimulator/Runner.app build/ios/Debug-iphonesimulator/Runner.app
+      - name: List build directory
+        script: |
+          ls -R build/ios/Debug-iphonesimulator
+    artifacts:
+      - build/ios/Debug-iphonesimulator/Runner.app
 
 
 
