@@ -1,4 +1,4 @@
-  ios-simulator-build:
+ios-simulator-build:
     name: iOS Simulator Build
     environment:
       flutter: 3.24.4 # Replace with the correct Flutter version
@@ -10,7 +10,6 @@
       - name: Install dependencies
         script: |
           flutter pub get
-	@@ -13,8 +16,15 @@ workflows:
           cd ios
           pod install
           cd ..
