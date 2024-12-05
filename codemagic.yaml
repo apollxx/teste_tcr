@@ -1,32 +1,16 @@
-# Integration section is required to make use of the keys stored in 
-
-# Codemagic UI under Apple Developer Portal integration.
-
-workflows:
-
-  ios-workflow:
-
-    name: iOS Workflow
-
-    integrations:
-      app_store_connect: TCR FINANCE
-
-
-
+  ios-simulator-build:
+    name: iOS Simulator Build
     environment:
       flutter: 3.24.4 # Replace with the correct Flutter version
       xcode: latest
-
     scripts:
-
       - name: Clean project
         script: |
           flutter clean
       - name: Install dependencies
         script: |
           flutter pub get
-      - name: Install CocoaPods dependencies
-        script: |
+	@@ -13,8 +16,15 @@ workflows:
           cd ios
           pod install
           cd ..
@@ -42,63 +26,3 @@ workflows:
           ls -R build/ios/Debug-iphonesimulator
     artifacts:
       - build/ios/Debug-iphonesimulator/Runner.app
-
-
-
-    publishing:
-
-      app_store_connect:
-
-        # Use referenced App Store Connect API key to authenticate binary upload
-
-        auth: integration 
-
-
-
-        # Configuration related to TestFlight (optional)
-
-
-
-        # Optional boolean, defaults to false. Whether or not to submit the uploaded
-
-        # build to TestFlight beta review.
-
-        # Note: This action is performed during post-processing.
-
-        submit_to_testflight: true
-
-
-
-        # Optional boolean, defaults to false. Set to true to automatically expire 
-
-        # previous build in review or waiting for review in Testflight before
-
-        # submitting a new build to beta review. Expired builds will no longer be available for testers.
-
-        # Note: This action is performed during post-processing.
-
-        expire_build_submitted_for_review: true
-
-
-
-        # Specify the names of beta tester groups that will get access to the build.
-
-        beta_groups: 
-          - Nexus
-
-        submit_to_app_store: true
-
-        
-
-
-
-
-
-
-
-
-
-        
-
-
-
