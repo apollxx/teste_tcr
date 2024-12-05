@@ -26,10 +26,10 @@
         <key>CFBundleTypeRole</key>
         <string>Editor</string>
         <key>CFBundleURLName</key>
-        <string>tcrteste.com</string>
+        <string>my.company.tcrfinance</string>
         <key>CFBundleURLSchemes</key>
         <array>
-        <string>tcrteste</string>
+        <string>my.company.tcrfinance</string>
         </array>
         </dict>
     </array>
